@@ -53,6 +53,10 @@ const VdrProps = {
     type: Number,
     default: 0
   },
+  scaleSize: {
+    type: Number,
+    default: 1
+  },
   draggable: {
     type: Boolean,
     default: true

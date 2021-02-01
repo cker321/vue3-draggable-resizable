@@ -39,6 +39,7 @@ export function initState(props: any, emit: any) {
   const [resizingMinWidth, setResizingMinWidth] = useState<number>(props.minW)
   const [resizingMinHeight, setResizingMinHeight] = useState<number>(props.minH)
   const aspectRatio = computed(() => height.value / width.value)
+  const [scaleSize, setScaleSize] = useState<number>(props.scaleSize)
   watch(
     width,
     (newVal) => {
@@ -73,12 +74,22 @@ export function initState(props: any, emit: any) {
       setEnable(newVal)
     }
   )
+  watch(
+      scaleSize,
+      (newVal: number, oldVal: number) => {
+        console.log(newVal);
+        console.log(oldVal);
+        // emit('update:x', newVal)
+        // emit('update:y', newVal)
+      }
+  )
   return {
     id: getId(),
     width,
     height,
     top,
     left,
+    scaleSize,
     enable,
     dragging,
     resizing,
@@ -243,7 +254,8 @@ export function initDraggableContainer(
   containerProvider: ContainerProvider | null,
   parentSize: ReturnType<typeof initParent>
 ) {
-  const { left: x, top: y, width: w, height: h, dragging, id } = containerProps
+  const { left: x, top: y, width: w, height: h, dragging, id, scaleSize } = containerProps
+  console.log(scaleSize);
   const {
     setDragging,
     setEnable,
@@ -289,8 +301,8 @@ export function initDraggableContainer(
     const [pageX, pageY] = getPosition(e)
     const deltaX = pageX - lstPageX
     const deltaY = pageY - lstPageY
-    let newLeft = lstX + deltaX
-    let newTop = lstY + deltaY
+    let newLeft = lstX + deltaX * scaleSize.value
+    let newTop = lstY + deltaY* scaleSize.value
     if (referenceLineMap !== null) {
       const widgetSelfLine = {
         col: [newLeft, newLeft + w.value / 2, newLeft + w.value],
@@ -349,6 +361,7 @@ export function initDraggableContainer(
     lstY = y.value
     lstPageX = getPosition(e)[0]
     lstPageY = getPosition(e)[1]
+    console.log(lstPageX)
     // document.documentElement.addEventListener('mousemove', handleDrag)
     // document.documentElement.addEventListener('mouseup', handleUp)
     addEvent(documentElement, MOVE_HANDLES, handleDrag)

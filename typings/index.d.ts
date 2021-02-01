@@ -197,7 +197,7 @@ declare const _default: ({
         lockAspectRatio: boolean;
     } & {}> & import("vue").ShallowUnwrapRef<{
         handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-        resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+        resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
         setWidth(val: number): number;
         setHeight(val: number): number;
         setTop(val: number): number;
@@ -278,7 +278,7 @@ declare const _default: ({
     lockAspectRatio: boolean;
 } & {}>, {
     handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-    resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+    resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
     setWidth(val: number): number;
     setHeight(val: number): number;
     setTop(val: number): number;
@@ -446,7 +446,7 @@ declare const _default: ({
             lockAspectRatio: boolean;
         } & {}>, {
             handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-            resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+            resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
             setWidth(val: number): number;
             setHeight(val: number): number;
             setTop(val: number): number;
@@ -552,7 +552,7 @@ declare const _default: ({
         lockAspectRatio: boolean;
     } & {}> & import("vue").ShallowUnwrapRef<{
         handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-        resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+        resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
         setWidth(val: number): number;
         setHeight(val: number): number;
         setTop(val: number): number;
@@ -633,7 +633,7 @@ declare const _default: ({
     lockAspectRatio: boolean;
 } & {}>, {
     handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-    resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+    resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
     setWidth(val: number): number;
     setHeight(val: number): number;
     setTop(val: number): number;

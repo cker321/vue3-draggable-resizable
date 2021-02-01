@@ -102,7 +102,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     };
 }, {
     handlesFiltered: import("vue").ComputedRef<ResizingHandle[]>;
-    resizeHandleDown: (e: MouseEvent, handleType: ResizingHandle) => void;
+    resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: ResizingHandle) => void;
     setWidth(val: number): number;
     setHeight(val: number): number;
     setTop(val: number): number;

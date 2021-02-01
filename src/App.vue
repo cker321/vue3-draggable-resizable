@@ -13,10 +13,11 @@
       h: {{ h }}<button @click="h += 10">+</button><button @click="h -= 10">-</button>
     </div>
     <div>active:{{ active }}<br /></div>
-    <div class="parent">
+    <div class="parent" style="transform: scale(0.5)">
       <Vue3DraggableResizable
         :initW="40"
         :initH="80"
+        :scale-size="2"
         v-model:x="x"
         v-model:y="y"
         v-model:w="w"
@@ -74,8 +75,8 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .parent {
-  width: 300px;
-  height: 300px;
+  width: 800px;
+  height: 800px;
   // position: absolute;
   // top: 100px;
   // left: 200px;
