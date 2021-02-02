@@ -159,6 +159,16 @@ default: `null`<br>
 ```html
 <Vue3DraggableResizable :initH="100" />
 ```
+#### scale
+
+type: `Number`<br>
+default: `1`<br>
+
+组件的缩放比例
+
+```html
+<Vue3DraggableResizable :scale="1" />
+```
 
 #### w
 

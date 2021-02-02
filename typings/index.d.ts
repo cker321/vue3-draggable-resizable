@@ -10,7 +10,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
-            scaleSize: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -36,7 +36,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
-            scaleSize: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -72,7 +72,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
-            scaleSize: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -99,6 +99,7 @@ declare const _default: ({
             setHeight(val: number): number;
             setTop(val: number): number;
             setLeft(val: number): number;
+            setScale(val: number): number;
             minWidth: import("vue").ComputedRef<number>;
             minHeight: import("vue").ComputedRef<number>;
             maxWidth: import("vue").ComputedRef<number>;
@@ -107,6 +108,7 @@ declare const _default: ({
             minTop: import("vue").ComputedRef<number>;
             maxLeft: import("vue").ComputedRef<number>;
             maxTop: import("vue").ComputedRef<number>;
+            minScale: number;
             parentWidth: import("vue").Ref<number>;
             parentHeight: import("vue").Ref<number>;
             id: string;
@@ -114,7 +116,7 @@ declare const _default: ({
             height: import("vue").Ref<number>;
             top: import("vue").Ref<number>;
             left: import("vue").Ref<number>;
-            scaleSize: import("vue").Ref<number>;
+            scale: import("vue").Ref<number>;
             enable: import("vue").Ref<boolean>;
             dragging: import("vue").Ref<boolean>;
             resizing: import("vue").Ref<boolean>;
@@ -136,6 +138,7 @@ declare const _default: ({
             $setHeight: (val: number) => number;
             $setTop: (val: number) => number;
             $setLeft: (val: number) => number;
+            $setScale: (val: number) => number;
             containerRef: import("vue").Ref<HTMLElement>;
             containerProvider: import("./components/types").ContainerProvider;
         }, unknown, {
@@ -151,7 +154,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
-            scaleSize: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -181,7 +184,7 @@ declare const _default: ({
         y: number;
         w: number;
         h: number;
-        scaleSize: number;
+        scale: number;
         draggable: boolean;
         resizable: boolean;
         initW: number;
@@ -208,6 +211,7 @@ declare const _default: ({
         setHeight(val: number): number;
         setTop(val: number): number;
         setLeft(val: number): number;
+        setScale(val: number): number;
         minWidth: import("vue").ComputedRef<number>;
         minHeight: import("vue").ComputedRef<number>;
         maxWidth: import("vue").ComputedRef<number>;
@@ -216,6 +220,7 @@ declare const _default: ({
         minTop: import("vue").ComputedRef<number>;
         maxLeft: import("vue").ComputedRef<number>;
         maxTop: import("vue").ComputedRef<number>;
+        minScale: number;
         parentWidth: import("vue").Ref<number>;
         parentHeight: import("vue").Ref<number>;
         id: string;
@@ -223,7 +228,7 @@ declare const _default: ({
         height: import("vue").Ref<number>;
         top: import("vue").Ref<number>;
         left: import("vue").Ref<number>;
-        scaleSize: import("vue").Ref<number>;
+        scale: import("vue").Ref<number>;
         enable: import("vue").Ref<boolean>;
         dragging: import("vue").Ref<boolean>;
         resizing: import("vue").Ref<boolean>;
@@ -245,6 +250,7 @@ declare const _default: ({
         $setHeight: (val: number) => number;
         $setTop: (val: number) => number;
         $setLeft: (val: number) => number;
+        $setScale: (val: number) => number;
         containerRef: import("vue").Ref<HTMLElement>;
         containerProvider: import("./components/types").ContainerProvider;
     }> & {
@@ -264,7 +270,7 @@ declare const _default: ({
     y: number;
     w: number;
     h: number;
-    scaleSize: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;
@@ -291,6 +297,7 @@ declare const _default: ({
     setHeight(val: number): number;
     setTop(val: number): number;
     setLeft(val: number): number;
+    setScale(val: number): number;
     minWidth: import("vue").ComputedRef<number>;
     minHeight: import("vue").ComputedRef<number>;
     maxWidth: import("vue").ComputedRef<number>;
@@ -299,6 +306,7 @@ declare const _default: ({
     minTop: import("vue").ComputedRef<number>;
     maxLeft: import("vue").ComputedRef<number>;
     maxTop: import("vue").ComputedRef<number>;
+    minScale: number;
     parentWidth: import("vue").Ref<number>;
     parentHeight: import("vue").Ref<number>;
     id: string;
@@ -306,7 +314,7 @@ declare const _default: ({
     height: import("vue").Ref<number>;
     top: import("vue").Ref<number>;
     left: import("vue").Ref<number>;
-    scaleSize: import("vue").Ref<number>;
+    scale: import("vue").Ref<number>;
     enable: import("vue").Ref<boolean>;
     dragging: import("vue").Ref<boolean>;
     resizing: import("vue").Ref<boolean>;
@@ -328,6 +336,7 @@ declare const _default: ({
     $setHeight: (val: number) => number;
     $setTop: (val: number) => number;
     $setLeft: (val: number) => number;
+    $setScale: (val: number) => number;
     containerRef: import("vue").Ref<HTMLElement>;
     containerProvider: import("./components/types").ContainerProvider;
 }, unknown, {
@@ -343,7 +352,7 @@ declare const _default: ({
     y: number;
     w: number;
     h: number;
-    scaleSize: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;
@@ -375,7 +384,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
-            scaleSize: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -401,7 +410,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
-            scaleSize: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -437,7 +446,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
-            scaleSize: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -464,6 +473,7 @@ declare const _default: ({
             setHeight(val: number): number;
             setTop(val: number): number;
             setLeft(val: number): number;
+            setScale(val: number): number;
             minWidth: import("vue").ComputedRef<number>;
             minHeight: import("vue").ComputedRef<number>;
             maxWidth: import("vue").ComputedRef<number>;
@@ -472,6 +482,7 @@ declare const _default: ({
             minTop: import("vue").ComputedRef<number>;
             maxLeft: import("vue").ComputedRef<number>;
             maxTop: import("vue").ComputedRef<number>;
+            minScale: number;
             parentWidth: import("vue").Ref<number>;
             parentHeight: import("vue").Ref<number>;
             id: string;
@@ -479,7 +490,7 @@ declare const _default: ({
             height: import("vue").Ref<number>;
             top: import("vue").Ref<number>;
             left: import("vue").Ref<number>;
-            scaleSize: import("vue").Ref<number>;
+            scale: import("vue").Ref<number>;
             enable: import("vue").Ref<boolean>;
             dragging: import("vue").Ref<boolean>;
             resizing: import("vue").Ref<boolean>;
@@ -501,6 +512,7 @@ declare const _default: ({
             $setHeight: (val: number) => number;
             $setTop: (val: number) => number;
             $setLeft: (val: number) => number;
+            $setScale: (val: number) => number;
             containerRef: import("vue").Ref<HTMLElement>;
             containerProvider: import("./components/types").ContainerProvider;
         }, unknown, {
@@ -516,7 +528,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
-            scaleSize: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -546,7 +558,7 @@ declare const _default: ({
         y: number;
         w: number;
         h: number;
-        scaleSize: number;
+        scale: number;
         draggable: boolean;
         resizable: boolean;
         initW: number;
@@ -573,6 +585,7 @@ declare const _default: ({
         setHeight(val: number): number;
         setTop(val: number): number;
         setLeft(val: number): number;
+        setScale(val: number): number;
         minWidth: import("vue").ComputedRef<number>;
         minHeight: import("vue").ComputedRef<number>;
         maxWidth: import("vue").ComputedRef<number>;
@@ -581,6 +594,7 @@ declare const _default: ({
         minTop: import("vue").ComputedRef<number>;
         maxLeft: import("vue").ComputedRef<number>;
         maxTop: import("vue").ComputedRef<number>;
+        minScale: number;
         parentWidth: import("vue").Ref<number>;
         parentHeight: import("vue").Ref<number>;
         id: string;
@@ -588,7 +602,7 @@ declare const _default: ({
         height: import("vue").Ref<number>;
         top: import("vue").Ref<number>;
         left: import("vue").Ref<number>;
-        scaleSize: import("vue").Ref<number>;
+        scale: import("vue").Ref<number>;
         enable: import("vue").Ref<boolean>;
         dragging: import("vue").Ref<boolean>;
         resizing: import("vue").Ref<boolean>;
@@ -610,6 +624,7 @@ declare const _default: ({
         $setHeight: (val: number) => number;
         $setTop: (val: number) => number;
         $setLeft: (val: number) => number;
+        $setScale: (val: number) => number;
         containerRef: import("vue").Ref<HTMLElement>;
         containerProvider: import("./components/types").ContainerProvider;
     }> & {
@@ -629,7 +644,7 @@ declare const _default: ({
     y: number;
     w: number;
     h: number;
-    scaleSize: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;
@@ -656,6 +671,7 @@ declare const _default: ({
     setHeight(val: number): number;
     setTop(val: number): number;
     setLeft(val: number): number;
+    setScale(val: number): number;
     minWidth: import("vue").ComputedRef<number>;
     minHeight: import("vue").ComputedRef<number>;
     maxWidth: import("vue").ComputedRef<number>;
@@ -664,6 +680,7 @@ declare const _default: ({
     minTop: import("vue").ComputedRef<number>;
     maxLeft: import("vue").ComputedRef<number>;
     maxTop: import("vue").ComputedRef<number>;
+    minScale: number;
     parentWidth: import("vue").Ref<number>;
     parentHeight: import("vue").Ref<number>;
     id: string;
@@ -671,7 +688,7 @@ declare const _default: ({
     height: import("vue").Ref<number>;
     top: import("vue").Ref<number>;
     left: import("vue").Ref<number>;
-    scaleSize: import("vue").Ref<number>;
+    scale: import("vue").Ref<number>;
     enable: import("vue").Ref<boolean>;
     dragging: import("vue").Ref<boolean>;
     resizing: import("vue").Ref<boolean>;
@@ -693,6 +710,7 @@ declare const _default: ({
     $setHeight: (val: number) => number;
     $setTop: (val: number) => number;
     $setLeft: (val: number) => number;
+    $setScale: (val: number) => number;
     containerRef: import("vue").Ref<HTMLElement>;
     containerProvider: import("./components/types").ContainerProvider;
 }, unknown, {
@@ -708,7 +726,7 @@ declare const _default: ({
     y: number;
     w: number;
     h: number;
-    scaleSize: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;

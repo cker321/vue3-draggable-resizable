@@ -58,7 +58,6 @@ export function initState(props: any, emit: any) {
     emit('update:y', newVal)
   })
   watch(left, (newVal) => {
-    console.log(newVal)
     emit('update:x', newVal)
   })
   watch(enable, (newVal, oldVal) => {
@@ -75,16 +74,6 @@ export function initState(props: any, emit: any) {
       setEnable(newVal)
     }
   )
-  // watch(
-  //     scale,
-  //     (newVal: number) => {
-  //       console.log(newVal);
-  //       emit('update:scale', newVal)
-  //       // emit('update:x', newVal)
-  //       // emit('update:y', newVal)
-  //     },
-  //     { immediate: true }
-  // )
   return {
     id: getId(),
     width,
@@ -308,7 +297,6 @@ export function initDraggableContainer(
     const [pageX, pageY] = getPosition(e)
     const deltaX = pageX - lstPageX
     const deltaY = pageY - lstPageY
-    console.log(scale.value)
     let newLeft = lstX + deltaX * scale.value
     let newTop = lstY + deltaY* scale.value
     if (referenceLineMap !== null) {
@@ -369,7 +357,6 @@ export function initDraggableContainer(
     lstY = y.value
     lstPageX = getPosition(e)[0]
     lstPageY = getPosition(e)[1]
-    console.log(lstPageX)
     // document.documentElement.addEventListener('mousemove', handleDrag)
     // document.documentElement.addEventListener('mouseup', handleUp)
     addEvent(documentElement, MOVE_HANDLES, handleDrag)
@@ -603,7 +590,6 @@ export function watchProps(
   watch(
       () => props.scale,
       (newVal: number) => {
-        console.log(newVal)
         setScale(newVal)
       }
   )

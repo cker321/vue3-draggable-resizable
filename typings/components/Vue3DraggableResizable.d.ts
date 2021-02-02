@@ -27,7 +27,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
         type: NumberConstructor;
         default: number;
     };
-    scaleSize: {
+    scale: {
         type: NumberConstructor;
         default: number;
     };
@@ -111,6 +111,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     setHeight(val: number): number;
     setTop(val: number): number;
     setLeft(val: number): number;
+    setScale(val: number): number;
     minWidth: import("vue").ComputedRef<number>;
     minHeight: import("vue").ComputedRef<number>;
     maxWidth: import("vue").ComputedRef<number>;
@@ -119,6 +120,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     minTop: import("vue").ComputedRef<number>;
     maxLeft: import("vue").ComputedRef<number>;
     maxTop: import("vue").ComputedRef<number>;
+    minScale: number;
     parentWidth: Ref<number>;
     parentHeight: Ref<number>;
     id: string;
@@ -126,7 +128,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     height: Ref<number>;
     top: Ref<number>;
     left: Ref<number>;
-    scaleSize: Ref<number>;
+    scale: Ref<number>;
     enable: Ref<boolean>;
     dragging: Ref<boolean>;
     resizing: Ref<boolean>;
@@ -148,6 +150,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     $setHeight: (val: number) => number;
     $setTop: (val: number) => number;
     $setLeft: (val: number) => number;
+    $setScale: (val: number) => number;
     containerRef: Ref<HTMLElement>;
     containerProvider: ContainerProvider;
 }, unknown, {
@@ -163,7 +166,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     y: number;
     w: number;
     h: number;
-    scaleSize: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;
@@ -189,7 +192,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     y: number;
     w: number;
     h: number;
-    scaleSize: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;

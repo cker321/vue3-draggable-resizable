@@ -79,6 +79,7 @@ Here is a complete example of using "vue-template"
       <Vue3DraggableResizable
         :initW="110"
         :initH="120"
+        :scale="1"
         v-model:x="x"
         v-model:y="y"
         v-model:w="w"
@@ -159,6 +160,16 @@ Set initial height(px)
 
 ```html
 <Vue3DraggableResizable :initH="100" />
+```
+#### scale
+
+type: `Number`<br>
+default: `1`<br>
+
+Set scale size
+
+```html
+<Vue3DraggableResizable :scale="1" />
 ```
 
 #### w

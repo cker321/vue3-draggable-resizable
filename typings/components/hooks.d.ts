@@ -8,7 +8,7 @@ export declare function initState(props: any, emit: any): {
     height: Ref<number>;
     top: Ref<number>;
     left: Ref<number>;
-    scaleSize: Ref<number>;
+    scale: Ref<number>;
     enable: Ref<boolean>;
     dragging: Ref<boolean>;
     resizing: Ref<boolean>;
@@ -30,6 +30,7 @@ export declare function initState(props: any, emit: any): {
     $setHeight: (val: number) => number;
     $setTop: (val: number) => number;
     $setLeft: (val: number) => number;
+    $setScale: (val: number) => number;
 };
 export declare function initParent(containerRef: Ref<HTMLElement | undefined>): {
     parentWidth: Ref<number>;
@@ -40,6 +41,7 @@ export declare function initLimitSizeAndMethods(props: any, parentSize: ReturnTy
     setHeight(val: number): number;
     setTop(val: number): number;
     setLeft(val: number): number;
+    setScale(val: number): number;
     minWidth: import("vue").ComputedRef<number>;
     minHeight: import("vue").ComputedRef<number>;
     maxWidth: import("vue").ComputedRef<number>;
@@ -48,6 +50,7 @@ export declare function initLimitSizeAndMethods(props: any, parentSize: ReturnTy
     minTop: import("vue").ComputedRef<number>;
     maxLeft: import("vue").ComputedRef<number>;
     maxTop: import("vue").ComputedRef<number>;
+    minScale: number;
 };
 export declare function initDraggableContainer(containerRef: Ref<HTMLElement | undefined>, containerProps: ReturnType<typeof initState>, limitProps: ReturnType<typeof initLimitSizeAndMethods>, draggable: Ref<boolean>, emit: any, containerProvider: ContainerProvider | null, parentSize: ReturnType<typeof initParent>): {
     containerRef: Ref<HTMLElement>;
