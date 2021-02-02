@@ -27,6 +27,10 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
         type: NumberConstructor;
         default: number;
     };
+    scaleSize: {
+        type: NumberConstructor;
+        default: number;
+    };
     draggable: {
         type: BooleanConstructor;
         default: boolean;
@@ -122,6 +126,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     height: Ref<number>;
     top: Ref<number>;
     left: Ref<number>;
+    scaleSize: Ref<number>;
     enable: Ref<boolean>;
     dragging: Ref<boolean>;
     resizing: Ref<boolean>;
@@ -158,6 +163,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     y: number;
     w: number;
     h: number;
+    scaleSize: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;
@@ -183,6 +189,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     y: number;
     w: number;
     h: number;
+    scaleSize: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;

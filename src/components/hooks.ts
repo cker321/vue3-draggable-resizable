@@ -39,7 +39,7 @@ export function initState(props: any, emit: any) {
   const [resizingMinWidth, setResizingMinWidth] = useState<number>(props.minW)
   const [resizingMinHeight, setResizingMinHeight] = useState<number>(props.minH)
   const aspectRatio = computed(() => height.value / width.value)
-  const [scaleSize, setScaleSize] = useState<number>(props.scaleSize)
+  const [scale, setScale] = useState<number>(props.scale)
   watch(
     width,
     (newVal) => {
@@ -58,6 +58,7 @@ export function initState(props: any, emit: any) {
     emit('update:y', newVal)
   })
   watch(left, (newVal) => {
+    console.log(newVal)
     emit('update:x', newVal)
   })
   watch(enable, (newVal, oldVal) => {
@@ -74,22 +75,23 @@ export function initState(props: any, emit: any) {
       setEnable(newVal)
     }
   )
-  watch(
-      scaleSize,
-      (newVal: number, oldVal: number) => {
-        console.log(newVal);
-        console.log(oldVal);
-        // emit('update:x', newVal)
-        // emit('update:y', newVal)
-      }
-  )
+  // watch(
+  //     scale,
+  //     (newVal: number) => {
+  //       console.log(newVal);
+  //       emit('update:scale', newVal)
+  //       // emit('update:x', newVal)
+  //       // emit('update:y', newVal)
+  //     },
+  //     { immediate: true }
+  // )
   return {
     id: getId(),
     width,
     height,
     top,
     left,
-    scaleSize,
+    scale,
     enable,
     dragging,
     resizing,
@@ -110,7 +112,8 @@ export function initState(props: any, emit: any) {
     $setWidth: (val: number) => setWidth(Math.floor(val)),
     $setHeight: (val: number) => setHeight(Math.floor(val)),
     $setTop: (val: number) => setTop(Math.floor(val)),
-    $setLeft: (val: number) => setLeft(Math.floor(val))
+    $setLeft: (val: number) => setLeft(Math.floor(val)),
+    $setScale: (val: number) => setScale(val)
   }
 }
 
@@ -140,12 +143,13 @@ export function initLimitSizeAndMethods(
     height,
     left,
     top,
+    scale,
     resizingMaxWidth,
     resizingMaxHeight,
     resizingMinWidth,
     resizingMinHeight
   } = containerProps
-  const { $setWidth, $setHeight, $setTop, $setLeft } = containerProps
+  const { $setWidth, $setHeight, $setTop, $setLeft, $setScale } = containerProps
   const { parentWidth, parentHeight } = parentSize
   const limitProps = {
     minWidth: computed(() => {
@@ -179,7 +183,8 @@ export function initLimitSizeAndMethods(
     }),
     maxTop: computed(() => {
       return props.parent ? parentHeight.value - height.value : Infinity
-    })
+    }),
+    minScale: 0
   }
   const limitMethods = {
     setWidth(val: number) {
@@ -225,6 +230,9 @@ export function initLimitSizeAndMethods(
           Math.max(limitProps.minLeft.value, val)
         )
       )
+    },
+    setScale(val: number) {
+      return $setScale(val)
     }
   }
   return {
@@ -254,8 +262,7 @@ export function initDraggableContainer(
   containerProvider: ContainerProvider | null,
   parentSize: ReturnType<typeof initParent>
 ) {
-  const { left: x, top: y, width: w, height: h, dragging, id, scaleSize } = containerProps
-  console.log(scaleSize);
+  const { left: x, top: y, width: w, height: h, dragging, id, scale } = containerProps
   const {
     setDragging,
     setEnable,
@@ -301,8 +308,9 @@ export function initDraggableContainer(
     const [pageX, pageY] = getPosition(e)
     const deltaX = pageX - lstPageX
     const deltaY = pageY - lstPageY
-    let newLeft = lstX + deltaX * scaleSize.value
-    let newTop = lstY + deltaY* scaleSize.value
+    console.log(scale.value)
+    let newLeft = lstX + deltaX * scale.value
+    let newTop = lstY + deltaY* scale.value
     if (referenceLineMap !== null) {
       const widgetSelfLine = {
         col: [newLeft, newLeft + w.value / 2, newLeft + w.value],
@@ -567,7 +575,7 @@ export function watchProps(
   props: any,
   limits: ReturnType<typeof initLimitSizeAndMethods>
 ) {
-  const { setWidth, setHeight, setLeft, setTop } = limits
+  const { setWidth, setHeight, setLeft, setTop, setScale } = limits
   watch(
     () => props.w,
     (newVal: number) => {
@@ -591,5 +599,12 @@ export function watchProps(
     (newVal: number) => {
       setTop(newVal)
     }
+  ),
+  watch(
+      () => props.scale,
+      (newVal: number) => {
+        console.log(newVal)
+        setScale(newVal)
+      }
   )
 }

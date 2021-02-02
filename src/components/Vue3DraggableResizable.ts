@@ -53,7 +53,7 @@ const VdrProps = {
     type: Number,
     default: 0
   },
-  scaleSize: {
+  scale: {
     type: Number,
     default: 1
   },
@@ -147,6 +147,7 @@ const emits = [
   'update:h',
   'update:x',
   'update:y',
+  'update:scale',
   'update:active'
 ]
 

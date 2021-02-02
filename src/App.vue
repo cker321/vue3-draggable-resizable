@@ -12,12 +12,20 @@
     <div>
       h: {{ h }}<button @click="h += 10">+</button><button @click="h -= 10">-</button>
     </div>
+      <div>
+          scaleSize: {{ scaleSize }}
+          type: {{ typeof scaleSize }}
+          <div>
+              <button @click="() => {scaleSize = Number((scaleSize + 0.1).toFixed(1))}">+</button>
+              <button @click="() => {scaleSize = Number((scaleSize - 0.1).toFixed(1))}">-</button>
+          </div>
+      </div>
     <div>active:{{ active }}<br /></div>
     <div class="parent" style="transform: scale(0.5)">
       <Vue3DraggableResizable
         :initW="40"
         :initH="80"
-        :scale-size="2"
+        :scale="scaleSize"
         v-model:x="x"
         v-model:y="y"
         v-model:w="w"
@@ -50,16 +58,16 @@
 <script>
 import { defineComponent } from "vue";
 import Vue3DraggableResizable from "./components/Vue3DraggableResizable";
-import DraggableContainer from "./components/DraggableContainer";
 
 export default defineComponent({
-  components: { DraggableContainer, Vue3DraggableResizable },
+  components: { Vue3DraggableResizable },
   data() {
     return {
       x: 100,
       y: 100,
       h: 100,
       w: 100,
+      scaleSize: 1,
       active: false,
       draggable: true,
       resizable: true,
