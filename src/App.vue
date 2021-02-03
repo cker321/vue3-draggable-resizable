@@ -16,8 +16,8 @@
           scaleSize: {{ scaleSize }}
           type: {{ typeof scaleSize }}
           <div>
-              <button @click="() => {scaleSize = Number((scaleSize + 0.1).toFixed(1))}">+</button>
-              <button @click="() => {scaleSize = Number((scaleSize - 0.1).toFixed(1))}">-</button>
+              <button @click="() => { scaleSize = Number((scaleSize + 0.1).toFixed(1)) }">+</button>
+              <button @click="() => { scaleSize = Number((scaleSize - 0.1).toFixed(1)) }">-</button>
           </div>
       </div>
     <div>active:{{ active }}<br /></div>
@@ -38,7 +38,6 @@
         :disabledW="false"
         :disabledH="false"
         :disabledY="false"
-        :lockAspectRatio="true"
         classNameHandle="my-handle"
         @activated="print('activated')"
         @deactivated="print('deactivated')"
@@ -67,7 +66,7 @@ export default defineComponent({
       y: 100,
       h: 100,
       w: 100,
-      scaleSize: 1,
+      scaleSize: 2,
       active: false,
       draggable: true,
       resizable: true,
