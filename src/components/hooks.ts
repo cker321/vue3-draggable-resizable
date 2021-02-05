@@ -428,6 +428,7 @@ export function initResizeHandle(
   const resizeHandleDrag = (e: HandleEvent) => {
     e.preventDefault()
     let [_pageX, _pageY] = getPosition(e)
+    console.log(scale.value)
     let deltaX = (_pageX - lstPageX) * scale.value
     let deltaY = (_pageY - lstPageY) * scale.value
     let _deltaX = deltaX

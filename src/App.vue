@@ -66,7 +66,7 @@ export default defineComponent({
       y: 100,
       h: 100,
       w: 100,
-      scaleSize: 2,
+      scaleSize: 1,
       active: false,
       draggable: true,
       resizable: true,
