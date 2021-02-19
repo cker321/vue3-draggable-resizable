@@ -61,12 +61,12 @@ export function initState(props: any, emit: any) {
     emit('update:x', newVal)
   })
   watch(enable, (newVal, oldVal) => {
-    emit('update:active', newVal)
     if (!oldVal && newVal) {
       emit('activated')
     } else if (oldVal && !newVal) {
       emit('deactivated')
     }
+    emit('update:active', newVal)
   })
   watch(
     () => props.active,

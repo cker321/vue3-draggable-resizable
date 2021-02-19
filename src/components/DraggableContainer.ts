@@ -88,8 +88,8 @@ export default defineComponent({
           return h('div', {
             style: {
               width: '0',
-              height: '100%',
-              top: '0',
+              height: 'calc(100% + 60px)',
+              top: '-60' + 'px',
               left: item + 'px',
               borderLeft: `1px dashed ${this.referenceLineColor}`,
               position: 'absolute'
@@ -99,9 +99,9 @@ export default defineComponent({
         ...this.matchedRows.map((item) => {
           return h('div', {
             style: {
-              width: '100%',
+              width: 'calc(100% + 60px)',
               height: '0',
-              left: '0',
+              left: '-60' + 'px',
               top: item + 'px',
               borderTop: `1px dashed ${this.referenceLineColor}`,
               position: 'absolute'

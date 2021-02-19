@@ -21,45 +21,48 @@
           </div>
       </div>
     <div>active:{{ active }}<br /></div>
-    <div class="parent" style="transform: scale(0.5)">
-      <Vue3DraggableResizable
-        :initW="40"
-        :initH="80"
-        :scale="scaleSize"
-        v-model:x="x"
-        v-model:y="y"
-        v-model:w="w"
-        v-model:h="h"
-        v-model:active="active"
-        :draggable="draggable"
-        :resizable="resizable"
-        :parent="true"
-        :disabledX="false"
-        :disabledW="false"
-        :disabledH="false"
-        :disabledY="false"
-        classNameHandle="my-handle"
-        @activated="print('activated')"
-        @deactivated="print('deactivated')"
-        @drag-start="print('drag-start', $event)"
-        @resize-start="print('resize-start', $event)"
-        @dragging="print('dragging', $event)"
-        @resizing="print('resizing', $event)"
-        @drag-end="print('drag-end', $event)"
-        @resize-end="print('resize-end', $event)"
-      >
+    <div class="parent">
+        <DraggableContainer :referenceLineVisible="true">
+            <Vue3DraggableResizable
+            :initW="40"
+            :initH="80"
+            :scale="scaleSize"
+            v-model:x="x"
+            v-model:y="y"
+            v-model:w="w"
+            v-model:h="h"
+            v-model:active="active"
+            :draggable="draggable"
+            :resizable="resizable"
+            :parent="true"
+            :disabledX="false"
+            :disabledW="false"
+            :disabledH="false"
+            :disabledY="false"
+            classNameHandle="my-handle"
+            @activated="print('activated')"
+            @deactivated="print('deactivated')"
+            @drag-start="print('drag-start', $event)"
+            @resize-start="print('resize-start', $event)"
+            @dragging="print('dragging', $event)"
+            @resizing="print('resizing', $event)"
+            @drag-end="print('drag-end', $event)"
+            @resize-end="print('resize-end', $event)"
+        >
         This is a test example
       </Vue3DraggableResizable>
+        </DraggableContainer>
     </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
+import DraggableContainer from "./components/DraggableContainer";
 import Vue3DraggableResizable from "./components/Vue3DraggableResizable";
 
 export default defineComponent({
-  components: { Vue3DraggableResizable },
+  components: { Vue3DraggableResizable, DraggableContainer },
   data() {
     return {
       x: 100,
@@ -75,7 +78,7 @@ export default defineComponent({
   mounted() {},
   methods: {
     print(val, e) {
-      // console.log(val, e)
+      console.log(val)
     },
   },
 });
@@ -88,8 +91,10 @@ export default defineComponent({
   // top: 100px;
   // left: 200px;
   position: relative;
-  border: 1px solid #000;
+  //border: 1px solid #000;
+    background: red;
   user-select: none;
+    margin-left:40px;
   ::v-deep {
     .vdr-container {
       border-color: #999;
